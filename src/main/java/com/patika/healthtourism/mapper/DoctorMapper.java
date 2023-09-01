@@ -6,6 +6,6 @@ import com.patika.healthtourism.model.requestDTO.DoctorCreateRequestDTO;
 import com.patika.healthtourism.util.IBaseMapper;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface DoctorMapper extends IBaseMapper<DoctorEntity, DoctorDTO, DoctorCreateRequestDTO> {
 }

@@ -6,6 +6,6 @@ import com.patika.healthtourism.model.requestDTO.AppointmentCreateRequestDTO;
 import com.patika.healthtourism.util.IBaseMapper;
 import org.mapstruct.Mapper;
 
-@Mapper
+@Mapper(componentModel = "spring")
 public interface AppointmentMapper extends IBaseMapper<AppointmentEntity, AppointmentDTO, AppointmentCreateRequestDTO> {
 }
