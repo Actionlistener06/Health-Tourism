@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Data
 @Table
 public class AppointmentEntity extends BaseEntity {
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name="hospital_id")
     private HospitalEntity hospital;
 

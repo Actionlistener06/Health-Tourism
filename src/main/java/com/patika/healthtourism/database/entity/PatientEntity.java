@@ -24,12 +24,12 @@ public class PatientEntity extends BaseEntity {
     @Column
     private String email;
 
-    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<ExaminationEntity> examinations;
 
-    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<AppointmentEntity> appointments;
 
-    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "patient",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<TravelPlanEntity> travelPlans;
 }

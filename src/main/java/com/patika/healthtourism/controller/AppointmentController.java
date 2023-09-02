@@ -7,7 +7,6 @@ import com.patika.healthtourism.model.AppointmentDTO;
 import com.patika.healthtourism.model.requestDTO.AppointmentCreateRequestDTO;
 import com.patika.healthtourism.service.AppointmentService;
 import com.patika.healthtourism.util.BaseController;
-import com.patika.healthtourism.util.BaseService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 

@@ -18,7 +18,7 @@ public class ExaminationEntity extends BaseEntity {
     @JoinColumn(name = "patient_id")
     private PatientEntity patient;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "appointment_id")
     private AppointmentEntity appointment;
 

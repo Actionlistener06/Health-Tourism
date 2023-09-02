@@ -14,11 +14,11 @@ public class TravelPlanEntity extends BaseEntity {
     @JoinColumn(name = "patient_id")
     private PatientEntity patient;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "flight_id")
     private FlightEntity flight;
 
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "hotel_id")
     private HotelEntity hotel;
 

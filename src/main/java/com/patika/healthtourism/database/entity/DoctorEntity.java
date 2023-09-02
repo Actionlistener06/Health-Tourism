@@ -26,10 +26,10 @@ public class DoctorEntity extends BaseEntity {
     @Column
     private String email;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "doctor_id")
     private HealthServiceEntity healthService;
 
-    @OneToMany(mappedBy = "doctor",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "doctor",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<ExaminationEntity> examinations;
 }

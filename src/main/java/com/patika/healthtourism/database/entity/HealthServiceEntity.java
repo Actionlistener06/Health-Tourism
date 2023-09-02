@@ -21,13 +21,13 @@ public class HealthServiceEntity extends BaseEntity {
     @Column
     private Duration duration;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hospital_id")
     private HospitalEntity hospital;
 
-    @OneToMany(mappedBy="healthService",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="healthService",fetch = FetchType.EAGER)
     private Set<DoctorEntity> serviceDoctors;
 
-    @OneToMany(mappedBy="healthService",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy="healthService",fetch = FetchType.EAGER)
     private Set<AppointmentEntity> appointments;
 }

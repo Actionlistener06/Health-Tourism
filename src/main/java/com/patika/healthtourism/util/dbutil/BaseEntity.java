@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -33,7 +34,8 @@ public class BaseEntity {
 
     @PrePersist
     protected void onCreate() {
-        setUuid(java.util.UUID.randomUUID());
+        if (uuid == null) {
+            setUuid(java.util.UUID.randomUUID());
+        }
     }
-
 }

@@ -4,6 +4,7 @@ import com.patika.healthtourism.model.PageDTO;
 import com.patika.healthtourism.model.requestDTO.BaseFilterRequestDTO;
 import com.patika.healthtourism.util.dbutil.BaseEntity;
 import com.patika.healthtourism.util.dbutil.IBaseRepository;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -28,7 +29,7 @@ public abstract class BaseController<
     }
 
     @PostMapping
-    public ResponseEntity<DTO> save(@RequestBody RequestDto requestDTO) {
+    public ResponseEntity<DTO> save( @RequestBody RequestDto requestDTO) {
         return new ResponseEntity<>(getService().save(requestDTO), HttpStatus.CREATED);
     }
 

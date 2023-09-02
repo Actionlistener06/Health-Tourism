@@ -19,9 +19,9 @@ public class HospitalEntity extends BaseEntity {
     @Column
     private String websiteUrl;
 
-    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.EAGER,cascade = CascadeType.ALL)
     private Set<HealthServiceEntity> healthServices;
 
-    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "hospital",fetch = FetchType.LAZY,cascade = CascadeType.ALL)
     private Set<AppointmentEntity> appointments;
 }

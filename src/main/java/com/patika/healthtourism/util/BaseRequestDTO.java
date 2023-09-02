@@ -1,10 +1,12 @@
 package com.patika.healthtourism.util;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import lombok.Data;
 
 import java.util.Date;
 import java.util.UUID;
 
+@Data
 public class BaseRequestDTO {
     private Long id;
     private UUID uuid;
