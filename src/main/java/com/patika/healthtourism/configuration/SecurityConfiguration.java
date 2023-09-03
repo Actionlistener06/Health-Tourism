@@ -57,7 +57,6 @@ public class SecurityConfiguration {
     private static final String[] DOCTOR_AUTH_WHITELIST = {
             "/examination",
             "/examination/**",
-            "/patient/add-examination"
     };
 
     private static final String[] ADMIN_AUTH_WHITELIST = {
