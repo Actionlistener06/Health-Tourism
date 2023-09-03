@@ -29,4 +29,9 @@ public class TravelPlanService extends BaseService<TravelPlanEntity, TravelPlanD
     protected TravelPlanEntityRepository getRepository() {
         return travelPlanEntityRepository;
     }
+
+    public void createTravelPlan(TravelPlanDTO travelPlan) {
+        TravelPlanEntity travelPlan1 = getMapper().dtoToEntity(travelPlan);
+         travelPlanEntityRepository.save(travelPlan1);
+    }
 }

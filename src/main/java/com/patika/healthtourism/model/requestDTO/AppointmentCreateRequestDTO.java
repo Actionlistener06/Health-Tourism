@@ -9,4 +9,5 @@ public class AppointmentCreateRequestDTO extends BaseRequestDTO {
     private HealthServiceRequestDTO healthService;
     private DoctorCreateRequestDTO doctor;
     private PatientRequestDTO patient;
+    private Boolean confirmed;
 }

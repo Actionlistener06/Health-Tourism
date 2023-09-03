@@ -24,4 +24,5 @@ public class DoctorController extends BaseController<DoctorEntity, DoctorDTO, Do
     protected DoctorService getService() {
         return doctorService;
     }
+
 }

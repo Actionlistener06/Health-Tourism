@@ -98,14 +98,18 @@ public class SecurityConfiguration {
                     configuration.setExposedHeaders(List.of("Content-Disposition"));
                     return configuration;
                 }).and()
-                .authorizeHttpRequests()
-                .requestMatchers(AUTH_WHITELIST).permitAll()
-                .requestMatchers(DOCTOR_AUTH_WHITELIST).hasRole("DOCTOR")
-                .requestMatchers(ADMIN_AUTH_WHITELIST).hasRole("ADMIN")
-                .requestMatchers(USER_AUTH_WHITELIST).hasRole("USER")
+                .authorizeHttpRequests(
+                        authorize -> {
+                            authorize
+                                    .requestMatchers(AUTH_WHITELIST).permitAll()
+                                    .requestMatchers(USER_AUTH_WHITELIST).hasRole("USER")
+                                    .requestMatchers(DOCTOR_AUTH_WHITELIST).hasRole("DOCTOR")
+                                    .requestMatchers(ADMIN_AUTH_WHITELIST).hasRole("ADMIN");
 
+                        }
+                );
 
-                .and()
+                http
                         .userDetailsService(uds)
                 .exceptionHandling()
                 .authenticationEntryPoint(

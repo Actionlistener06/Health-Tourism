@@ -8,6 +8,10 @@ import com.patika.healthtourism.model.requestDTO.FlightRequestDTO;
 import com.patika.healthtourism.util.BaseService;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
+import java.util.List;
+import java.util.Optional;
+
 @Service
 public class FlightService extends BaseService<FlightEntity, FlightDTO, FlightRequestDTO, FlightMapper, FlightEntityRepository> {
     private final FlightEntityRepository flightEntityRepository;
@@ -26,5 +30,12 @@ public class FlightService extends BaseService<FlightEntity, FlightDTO, FlightRe
     @Override
     protected FlightEntityRepository getRepository() {
         return flightEntityRepository;
+    }
+
+    public List<FlightDTO> getAvailableFlights(LocalDateTime appointmentDate) {
+
+        Optional<List<FlightEntity>> flights = flightEntityRepository.findByArrivalDateTimeBefore(appointmentDate);
+
+        return flights.map(flightEntities -> getMapper().entityListToDtoList(flightEntities)).orElse(null);
     }
 }

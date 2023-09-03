@@ -2,6 +2,7 @@ package com.patika.healthtourism.controller;
 
 import com.patika.healthtourism.database.entity.UserEntity;
 import com.patika.healthtourism.model.requestDTO.LoginRequestDTO;
+import com.patika.healthtourism.model.requestDTO.UserRegisterRequestDTO;
 import com.patika.healthtourism.service.UserService;
 import com.patika.healthtourism.util.security.JWTUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping("auth")
+@RequestMapping("/auth")
 public class AuthorizationController {
 
 
@@ -33,7 +34,7 @@ public class AuthorizationController {
     UserService userService;
 
 
-    @PostMapping("login")
+    @PostMapping("/login")
     public Map<String, Object> loginHandler(@RequestBody LoginRequestDTO body) {
         UsernamePasswordAuthenticationToken authInputToken =
                 new UsernamePasswordAuthenticationToken(body.getEmail(), body.getPassword());
@@ -51,12 +52,29 @@ public class AuthorizationController {
     }
 
 
-    @PostMapping("register")
-    public ResponseEntity<Boolean> loginHandler(@RequestBody UserEntity body) {
+    @PostMapping("/register")
+    public ResponseEntity<Boolean> saveUser(@RequestBody UserRegisterRequestDTO body) {
 
         userService.saveUserByRole(body);
 
         return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
-
     }
+    @PostMapping("/register/admin")
+    public ResponseEntity<Boolean> registerAdmin(@RequestBody UserRegisterRequestDTO body) {
+        userService.saveAdmin(body);
+        return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
+    }
+
+    @PostMapping("/register/doctor")
+    public ResponseEntity<Boolean> registerDoctor(@RequestBody UserRegisterRequestDTO body) {
+        userService.saveDoctor(body);
+        return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
+    }
+
+    @PostMapping("/register/user")
+    public ResponseEntity<Boolean> registerUser(@RequestBody UserRegisterRequestDTO body) {
+        userService.saveUser(body);
+        return new ResponseEntity<>(Boolean.TRUE, HttpStatus.OK);
+    }
+
 }
