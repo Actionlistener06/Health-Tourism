@@ -1,5 +1,6 @@
 package com.patika.healthtourism.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.patika.healthtourism.util.dbutil.BaseEntity;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -22,8 +23,12 @@ public class HotelEntity extends BaseEntity {
     private Double pricePerNight;
     @Column
     private Integer starRating;
-    @Column
+
+    @Column(columnDefinition = "TIMESTAMP")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate checkInDate;
-    @Column
+
+    @Column(columnDefinition = "TIMESTAMP")
+    @JsonFormat(pattern = "dd-MM-yyyy")
     private LocalDate checkOutDate;
 }

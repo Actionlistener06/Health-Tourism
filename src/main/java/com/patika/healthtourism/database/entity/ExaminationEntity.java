@@ -1,5 +1,6 @@
 package com.patika.healthtourism.database.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.patika.healthtourism.util.dbutil.BaseEntity;
 import jakarta.persistence.*;
 import lombok.Data;
@@ -22,6 +23,8 @@ public class ExaminationEntity extends BaseEntity {
     @JoinColumn(name = "appointment_id")
     private AppointmentEntity appointment;
 
+    @Column(columnDefinition = "TIMESTAMP")
+    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss")
     private LocalDateTime examinationDateTime;
 
     private String notes;

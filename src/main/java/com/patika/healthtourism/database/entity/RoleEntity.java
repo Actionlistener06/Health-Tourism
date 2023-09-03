@@ -23,7 +23,6 @@ public class RoleEntity extends BaseEntity {
 
 
     public RoleEntity() {
-
     }
 
 }

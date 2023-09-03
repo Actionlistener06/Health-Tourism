@@ -32,8 +32,6 @@ public class UserEntity extends BaseEntity {
     private boolean isEnable;
 
 
-
-
     @ManyToMany(fetch = FetchType.LAZY)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
@@ -44,6 +42,5 @@ public class UserEntity extends BaseEntity {
     public UserEntity() {
         isEnable = false;
     }
-
 
 }

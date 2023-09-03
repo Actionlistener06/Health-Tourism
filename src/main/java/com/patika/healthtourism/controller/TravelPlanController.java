@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/travelplan")
+@RequestMapping("/travelPlan")
 public class TravelPlanController extends BaseController<TravelPlanEntity, TravelPlanDTO, TravelPlanRequestDTO,
         TravelPlanMapper, TravelPlanEntityRepository, TravelPlanService> {
     private final TravelPlanService travelPlanService;
